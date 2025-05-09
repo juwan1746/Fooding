@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Fooding | 디저트 쇼핑몰</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'sans-serif';
+      background: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: white;
+      border-bottom: 1px solid #eee;
+    }
+    a{ 
+	    color:inherit; 
+	    text-decoration:none; 
+  } 
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      width: 50%;
+
+    }
+    .logo img {
+      width: 3%;
+      height: 3%;
+    }
+    .logopicture img {
+      width: 100%;
+      height: 100px;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .icons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      width: 50%;
+      justify-content: flex-end;
+    }
+    .icons img {
+      width: 5%;
+      height: 5%;
+      cursor: pointer;
+    }
+    .category-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    
+    .category-icons div {
+      text-align: center;
+    }
+    .category-icons img {
+      width: 5%;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid rgba(128, 255, 0, 0.689);
+    }
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .category-buttons button {
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+    }
+    .category-buttons button.active {
+      background: black;
+      color: white;
+      font-weight: bold;
+    }
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    .product-card {
+      width: 200px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: #666;
+    }
+    .product-card button {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: none;
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    .product-card button:hover {
+      background: #218838;
+    }
+    footer {
+      background: #f8f9fa;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+    footer p {
+      margin: 3% 3%;
+      font-size: 20px;
+      font-weight: 500;
+      color: #000;
+      font-family: "roboto", Arial, sans-serif;
+      text-align: left;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .container {
+      display: flex;
+      max-width: 1200px;
+      max-height: 1200px;
+      height: 800px;
+      margin: 3% 3%;
+      padding: 0px;
+    }
+    .menu {
+      display: inline-block;
+      justify-content: center;
+      gap: 0px;
+      margin: 0px 0;
+      padding: 0px;
+      flex-wrap: wrap;
+      list-style: none;
+
+      width: 12%;
+      height: 460px;
+
+      background: #f8f9fa;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+
+    
+      position: sticky;
+  
+      top: 0;
+      
+    }
+    .menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+    }
+    .menu li {
+      margin: 0px 0;
+      padding: 8% 0;
+      text-align: center;
+      background: #f8f9fa;
+      border-radius: 10px;
+      width: 100%;
+
+      font-size: 12px;
+
+
+      
+    }
+    .content {
+      display: inline-block;
+      margin-left: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+
+      position: relative;
+      width: 80%;
+      
+
+    }
+    
+    
+    .mypage-header-content {
+      
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 0px;
+      
+      
+    }
+    main {
+      margin:0;
+      padding: 0;
+      max-height: 2000px;
+      height: 900px;
+    }
+    .cash {
+      
+      align-items: center;
+      padding: 10px 10px;
+      border-top: 1px solid #ccc;
+    }
+    #myname {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px 20px;
+
+      
+    }
+    #mysetting {
+      font-size: 15px;
+      
+      margin: 0 20px;
+      float: right
+    }
+    #cash {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 20px;
+    }
+    #money {
+      font-size: 20px;
+      font-weight: bold;
+      float: right;
+      margin: 0 20px;
+    }
+
+    .footer {
+      padding: 0px;
+      background: #f8f9fa;
+      
+    }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 0px;
+    }
+    .footer-info {
+      margin: 0px 0;
+      padding: 0px 0px;
+      float: left;
+      width: 50%;
+      height:auto;
+    }
+    .footer-pageainfo {
+      margin: 0px 0;
+      width: 100%;
+      height:auto;
+    }
+    .footer-pageainfo p {
+      margin: 0px 0;
+      padding: 10px 10px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #000;
+      font-family: "roboto", Arial, sans-serif;
+      text-align:center;
+
+    }
+    .social-media {
+      margin: 50px 10px;
+      padding: 0px;
+      float: left;
+      
+      height:auto;
+      
+    }
+    .footer-links {
+      margin: 0px 0;
+      padding: 10px 10px;
+      float: right;
+      width: 50%;
+      height:auto;
+
+      
+    }
+    
+    .footer-links a {
+      margin: 0 0px;
+      padding: 0px 0px;
+      font-family: "roboto", Arial, sans-serif;
+    
+      color: #000;
+      font-size: 16px;
+      font-weight: 400;
+    
+    }
+    .topiclinks {
+      display: flex;
+      justify-content: space-between;
+      
+      padding: 10px 10px;
+      margin: 0px 0;
+      height:auto;
+    }
+
+    .footer-links .pagelinks{
+      text-decoration: none;
+      color: #007bff;
+      margin: 0 0px;
+      padding: 0px 0px;
+      width: 33%;
+      height:auto;
+    }
+    /* .pagelinks {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 10px;
+    } */
+    .page-link1, .page-link2, .page-link3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 10px;
+    }
+    .pagelinks a{
+      margin: 0 10px;
+      padding: 10px 10px;
+      text-decoration: none;
+      color: #007bff;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .social-media img {
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+    <img src="./img/카테고리.png" alt="목록 아이콘">
+    <img src="./img/검색.png" alt="검색 아이콘">
+    <div class="logopicture"><img src="./img/logo.png" alt="푸딩 로고"></div>
+    </div>
+    <div class="icons">
+        <img src="./img/마이페이지.png" alt="마이페이지 또는 로그인">
+        <img src="./img/장바구니.png" alt="장바구니">
+        <span style="color:red;">0</span>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="menu">
+        <ul>
+          <li><a href="mypage.html">마이쇼핑 홈</a></li>
+          <li><a href="">주문/배송</a></li>
+          <li><a href="">관심상품</a></li>
+          <li><a href="">리뷰 작성</a></li>
+          <li><a href="">정기구독</a></li>
+          <li><a href="">상품 Q&A</a></li>
+          <li><a href="">1:1 문의</a></li>
+          <li><a href="">회원정보</a></li>
+          <li><a href="">고객센터</a></li>
+          <li><a href="">공지사항</a></li>
+          <li><a href="">이벤트</a></li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <div class="mypage-header">
+          <h2>내 정보</h2>
+          <div class="mypage-header-content">
+            <a href=""><span id="myname">이름</span></a>
+            <a href=""><span id="mysetting">설정</span></a>
+          <div class="cash"></div>
+            <span id="cash">캐쉬</span>
+            <span id="money">5000원</span>
+      
+      
+
+        </div>
+
+          
+        </div>
+
+      </div>
+    </div>
+  </main>
+  
+  
+  <footer>
+    <div class ="footer">
+      <div class="section-heading">
+        <div class="footer-info">
+          <div class = "footer-pageainfo"></div>
+            <p>Fooding | 디저트 쇼핑몰</p>
+            <p>이메일: <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">fooding@gmail.com</a>
+
+
+          <div class="social-media">
+            <a href="https://www.youtube.com/" target="blank"><img src="유튜브.png" alt="유튜브"> </a>
+            <a href="https://www.facebook.com" target="blank"><img src="페북.png" alt="페이스북"> </a>
+            <a href="https://www.instagram.com" target="blank"><img src="인스타.png" alt="인스타그램"> </a>
+          </div>
+        </div>
+       <div class="footer-links">
+          <div class ="topiclinks">
+            <div class="topiclinks-child"><a href="">Topic1</a></div>
+              <div class="topiclinks-child"><a href="">Topic2</a></div>
+              <div class="topiclinks-child"><a href="">Topic3</a></div>
+          </div>
+          
+          <div class="pageLinks">
+            <div class="page-link1">
+              <a href="">Page</a>
+              <a href="">Page</a>
+              <a href="">Page</a>
+            </div>
+            <div class="page-link2">
+              <a href="">Page</a>
+              <a href="">Page</a>
+              <a href="">Page</a>
+            </div>
+            <div  class="page-link3">
+              <a href="">Page</a>
+              <a href="">Page</a>
+              <a href="">Page</a>
+          </div>
+        
+        
+          
+          
+    </div>
+  </footer>
+</body>
+</html>
